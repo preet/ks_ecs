@@ -317,11 +317,11 @@ namespace ks
             ComponentType& Create(Id entity_id, Args&&... args)
             {
                 if(!(m_list_data.size() > entity_id)) {
-                    m_list_data.resize(m_list_data.size()+100);
+                    m_list_data.resize(entity_id+25);
                 }
 
                 // TODO: I think this std::move is redundant,
-                // right side of hte equal sign is already an rval
+                // right side of the equal sign is already an rval
 
                 // TODO: Does placement new make more sense here?
                 m_list_data[entity_id] = std::move(ComponentType(std::forward<Args>(args)...));
@@ -336,7 +336,7 @@ namespace ks
                 // Reset component
 
                 // TODO: I think this std::move is redundant,
-                // right side of hte equal sign is already an rval
+                // right side of the equal sign is already an rval
                 m_list_data[entity_id] = std::move(ComponentType());
 
                 // Trim some unused component list data
@@ -344,8 +344,8 @@ namespace ks
                         sint(m_list_data.size())-
                         this->m_scene.GetEntityList().size();
 
-                if(diff > 100) {
-                    m_list_data.resize(m_list_data.size()-100);
+                if(diff > 25) {
+                    m_list_data.resize(m_list_data.size()-25);
                 }
 
                 this->template removeComponentFromEntityMask<ComponentType>(entity_id);
