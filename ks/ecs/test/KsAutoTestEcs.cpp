@@ -113,7 +113,7 @@ TEST_CASE("ComponentLists","[ecs_cm_lists]")
 {
     // Create scene
     shared_ptr<EventLoop> evl = make_shared<EventLoop>();
-    shared_ptr<Scene> scene = make_object<Scene>(evl);
+    shared_ptr<Scene> scene = MakeObject<Scene>(evl);
 
     // Create ComponentLists
     scene->RegisterComponentList<DataABC>(
@@ -169,7 +169,7 @@ TEST_CASE("Component masks,","[ecs_masks]")
 {
     // Create scene
     shared_ptr<EventLoop> evl = make_shared<EventLoop>();
-    shared_ptr<Scene> scene = make_object<Scene>(evl);
+    shared_ptr<Scene> scene = MakeObject<Scene>(evl);
 
     // Create ComponentLists
     scene->RegisterComponentList<DataABC>(
@@ -247,7 +247,7 @@ TEST_CASE("Components","[ecs_components]")
 {
     // Create scene
     shared_ptr<EventLoop> evl = make_shared<EventLoop>();
-    shared_ptr<Scene> scene = make_object<Scene>(evl);
+    shared_ptr<Scene> scene = MakeObject<Scene>(evl);
 
     // Create ComponentLists
     scene->RegisterComponentList<DataABC>(
